@@ -3,7 +3,13 @@ import random
 import requests
 
 key = "any_key"
-bot = telebot.TeleBot("any_token")
+token = "any_token"
+proxy = "any_proxy"
+
+if proxy is not None:
+    telebot.apihelper.proxy = {'http': proxy, 'https': proxy}
+
+bot = telebot.TeleBot(token)
 
 
 @bot.message_handler(commands=['start'])
